@@ -1,0 +1,97 @@
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+    Ajouter soin dentaire
+ </button>
+ 
+ <!-- The Modal -->
+ <div class="modal" id="myModal">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <!-- Modal Header -->
+       <div class="modal-header">
+         <h4 class="modal-title">Ajouter un soin dentaire</h4>
+         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+       </div>
+       <!-- Modal Body -->
+       <div class="modal-body">
+         <form [formGroup]="soinDentaireForm" (ngSubmit)="onSubmit()">
+           <div class="mb-3">
+             <label for="date" class="form-label">Date:</label>
+             <input type="date" id="date" formControlName="date" class="form-control">
+           </div>
+           <div class="mb-3">
+             <label for="dents" class="form-label">Dents:</label>
+             <input type="text" id="dents" formControlName="dents" class="form-control">
+           </div>
+           <div class="mb-3">
+             <label for="acte" class="form-label">Acte dentaire:</label>
+             <input type="text" id="acte" formControlName="acte" class="form-control">
+           </div>
+           <div class="mb-3">
+             <label for="horaire" class="form-label">Horaire:</label>
+             <input type="text" id="horaire" formControlName="horaire" class="form-control">
+           </div>
+           <div class="mb-3">
+             <label for="matriculeF" class="form-label">Matricule du patient:</label>
+             <input type="text" id="matriculeF" formControlName="matriculeF" class="form-control">
+           </div>
+           <div class="mb-3">
+             <label for="prothese" class="form-label">Prothèse dentaire:</label>
+             <input type="text" id="prothese" formControlName="prothese" class="form-control">
+           </div>
+           <button type="submit" class="btn btn-primary">Ajouter</button>
+         </form>
+       </div>
+       <!-- Modal Footer -->
+       <div class="modal-footer">
+         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+       </div>
+     </div>
+   </div>
+ </div>
+ 
+ <!-- Display the list of soins dentaires -->
+ <div class="container mt-5">
+   <h2>Liste des soins dentaires</h2>
+   <table class="table">
+     <thead>
+       <tr>
+         <th>Date</th>
+         <th>Dents</th>
+         <th>Acte</th>
+         <th>Horaire</th>
+         <th>Matricule du patient</th>
+         <th>Prothèse dentaire</th>
+         <th>Actions</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr *ngFor="let soinDentaire of soinsDentaires">
+         <td>{{ soinDentaire.date }}</td>
+         <td>{{ soinDentaire.dents }}</td>
+         <td>{{ soinDentaire.acte }}</td>
+         <td>{{ soinDentaire.horaire }}</td>
+         <td>{{ soinDentaire.matriculeF }}</td>
+         <td>{{ soinDentaire.prothese }}</td>
+         <td>
+           <!-- Modifier Button -->
+           <button class="btn btn-success me-2" (click)="updateSoinDentaire(soinDentaire.date ,soinDentaire)">
+             <i class="bi bi-pencil"></i> Modifier
+           </button>
+           <!-- Supprimer Button -->
+           <button class="btn btn-danger" (click)="deleteSoinDentaire(soinDentaire.date)">
+             <i class="bi bi-trash"></i> Supprimer
+           </button>
+         </td>
+       </tr>
+     </tbody>
+   </table>
+   <!-- Bootstrap JS -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+   <!-- Modal Initialization -->
+   <script>
+     var myModal = new bootstrap.Modal(document.getElementById('myModal'), {});
+     myModal.show();
+   </script>
+ </div>
+ 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page d'accueil</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body class="vh-100 overflow-hidden">
+
+<nav  *ngIf="isAuthenticated"  class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/"></a>
+        </li>
+       
+      
+      </ul>
+      <form class="d-flex">
+        <button class="btn btn-outline-danger" (click)="logout()">
+          Déconnexion
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row vh-100">
+
+    <!-- Sidebar -->
+    <nav *ngIf="isAuthenticated" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li><a routerLink="/Adherent" class="nav-link text-decoration-none text-light fs-5">Adherent</a></li>
+          <li><a routerLink="/BulletinSions" class="nav-link text-decoration-none text-light fs-5">Bulletin Sions</a></li>
+          <li><a routerLink="/Conjoint" class="nav-link text-decoration-none text-light fs-5">Conjoints</a></li>
+          <li><a routerLink="/Enfant" class="nav-link text-decoration-none text-light fs-5">Enfants</a></li>
+          <li><a routerLink="/Etablissement" class="nav-link text-decoration-none text-light fs-5">Etablissements</a></li>
+          <li><a routerLink="/Medecin" class="nav-link text-decoration-none text-light fs-5">Médecins</a></li>
+          <li><a routerLink="/Soint Dentaire" class="nav-link text-decoration-none text-light fs-5">Dentaires</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="col-md-9 bg-light">
+      <div class="container">
+        <h1 class="mt-5">Bienvenue sur la page d'accueil</h1>
+        <p></p>
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>

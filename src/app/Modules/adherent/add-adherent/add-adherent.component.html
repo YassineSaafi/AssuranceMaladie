@@ -1,0 +1,178 @@
+<!-- conjoint.component.html -->
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+  Ajouter Adhereent
+</button>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+ <div class="modal-dialog">
+   <div class="modal-content">
+     <!-- Modal Header -->
+     <div class="modal-header">
+       <h4 class="modal-title">Ajouter un conjoint</h4>
+       <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+     </div>
+     <!-- Modal body -->
+     <div class="modal-body">
+       <form [formGroup]="adherentForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="nonFamille" class="form-label">Nom de famille:</label>
+      <input type="text" formControlName="nonFamille" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="prenom" class="form-label">Prénom:</label>
+      <input type="text" formControlName="prenom" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="datenaissance" class="form-label">Date de naissance:</label>
+      <input type="date" formControlName="datenaissance" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="lieu" class="form-label">Lieu de naissance:</label>
+      <input type="text" formControlName="lieu" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Sexe:</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="Homme" formControlName="sexe" id="homme">
+        <label class="form-check-label" for="homme">Homme</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="Femme" formControlName="sexe" id="femme">
+        <label class="form-check-label" for="femme">Femme</label>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="situationFamillle" class="form-label">Situation familiale:</label>
+      <input type="text" formControlName="situationFamillle" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="dateadherentAssurance" class="form-label">Date adhérent Assurance:</label>
+      <input type="date" formControlName="dateadherentAssurance" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="cin" class="form-label">CIN:</label>
+      <input type="text" formControlName="cin" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="matriculeCnam" class="form-label">Matricule CNAM:</label>
+      <input type="text" formControlName="matriculeCnam" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="telephone" class="form-label">Téléphone:</label>
+      <input type="text" formControlName="telephone" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="rib" class="form-label">RIB:</label>
+      <input type="text" formControlName="rib" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="adresseAdherent" class="form-label">Adresse:</label>
+      <input type="text" formControlName="adresseAdherent" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="gouvernement" class="form-label">Gouvernement:</label>
+      <input type="text" formControlName="gouvernement" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="profession" class="form-label">Profession:</label>
+      <input type="text" formControlName="profession" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="montantSalaire" class="form-label">Montant Salaire:</label>
+      <input type="text" formControlName="montantSalaire" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Maladie:</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="true" formControlName="maladie" id="maladieOui">
+        <label class="form-check-label" for="maladieOui">Oui</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="false" formControlName="maladie" id="maladieNon">
+        <label class="form-check-label" for="maladieNon">Non</label>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Infirmite:</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="true" formControlName="infirmite" id="infirmiteOui">
+        <label class="form-check-label" for="infirmiteOui">Oui</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" value="false" formControlName="infirmite" id="infirmiteNon">
+        <label class="form-check-label" for="infirmiteNon">Non</label>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="maladiesPsychiatrique" class="form-label">Maladies Psychiatriques:</label>
+      <input type="text" formControlName="maladiesPsychiatrique" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="maladiesCancerceuses" class="form-label">Maladies Cancéreuses:</label>
+      <input type="text" formControlName="maladiesCancerceuses" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="operation" class="form-label">Opération:</label>
+      <input type="text" formControlName="operation" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="epoqueOperations" class="form-label">Époque des Opérations:</label>
+      <input type="date" formControlName="epoqueOperations" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="discriptionMaladiesPsychiatrique" class="form-label">Description des Maladies Psychiatriques:</label>
+      <textarea formControlName="discriptionMaladiesPsychiatrique" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="discriptionMaladiesCancereuses" class="form-label">Description des Maladies Cancéreuses:</label>
+      <textarea formControlName="discriptionMaladiesCancereuses" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="descriptionOperations" class="form-label">Description des Opérations:</label>
+      <textarea formControlName="descriptionOperations" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="beneficaire" class="form-label">Bénéficiaire:</label>
+      <input type="text" formControlName="beneficaire" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description:</label>
+      <textarea formControlName="description" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+  </form>
+     </div>
+     <!-- Modal footer -->
+     <div class="modal-footer">
+       <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+     </div>
+   </div>
+ </div>
+</div>
+
+<!-- Modifier Modal -->
+<div class="modal" id="modifierModal">
+ <div class="modal-dialog">
+   <div class="modal-content">
+     <!-- Modal Header -->
+     <div class="modal-header">
+       <h4 class="modal-title">Modifier un conjoint</h4>
+       <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+     </div>
+     <!-- Modal body -->
+     <div class="modal-body">
+       <!-- Formulaire de modification du conjoint -->
+     </div>
+     <!-- Modal footer -->
+     <div class="modal-footer">
+       <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+     </div>
+   </div>
+ </div>
+</div>
+
+
+
+

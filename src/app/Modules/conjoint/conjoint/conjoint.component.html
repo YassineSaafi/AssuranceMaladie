@@ -1,0 +1,172 @@
+<!-- conjoint.component.html -->
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+    Ajouter conjoint
+ </button>
+ 
+ <!-- The Modal -->
+ <div class="modal" id="myModal">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <!-- Modal Header -->
+       <div class="modal-header">
+         <h4 class="modal-title">Ajouter un conjoint</h4>
+         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+       </div>
+       <!-- Modal body -->
+       <div class="modal-body">
+        <form [formGroup]="conjointForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+              <label for="nom" class="form-label">Nom:</label>
+              <input type="text" id="nom" formControlName="nom" class="form-control">
+              <div *ngIf="submitted && formControls.nom.errors" class="text-danger">
+                  <div *ngIf="formControls.nom.errors.required">Le nom est requis.</div>
+              </div>
+          </div>
+          <div class="mb-3">
+              <label for="prenom" class="form-label">Prénom:</label>
+              <input type="text" id="prenom" formControlName="prenom" class="form-control">
+          </div>
+          <div class="mb-3">
+              <label for="profession" class="form-label">Profession:</label>
+              <input type="text" id="profession" formControlName="profession" class="form-control">
+          </div>
+          <div class="mb-3">
+              <label for="taille" class="form-label">Taille (cm):</label>
+              <input type="number" id="taille" formControlName="taille" class="form-control">
+          </div>
+          <div class="mb-3">
+              <label for="poids" class="form-label">Poids (kg):</label>
+              <input type="number" id="poids" formControlName="poids" class="form-control">
+          </div>
+          <div class="form-check mb-3">
+              <input type="checkbox" id="maladie" formControlName="maladie" class="form-check-input">
+              <label for="maladie" class="form-check-label">Maladie</label>
+          </div>
+          <div class="form-check mb-3">
+              <input type="checkbox" id="infirmite" formControlName="infirmite" class="form-check-input">
+              <label for="infirmite" class="form-check-label">Infirmite</label>
+          </div>
+          <div class="form-check mb-3">
+              <input type="checkbox" id="maladiePsychiatrique" formControlName="maladiePsychiatrique" class="form-check-input">
+              <label for="maladiePsychiatrique" class="form-check-label">Maladies Psychiatriques</label>
+          </div>
+          <div class="form-check mb-3">
+              <input type="checkbox" id="maladiesCancereuses" formControlName="maladiesCancereuses" class="form-check-input">
+              <label for="maladiesCancereuses" class="form-check-label">Maladies Cancéreuses</label>
+          </div>
+          <div class="form-check mb-3">
+              <input type="checkbox" id="operations" formControlName="operations" class="form-check-input">
+              <label for="operations" class="form-check-label">Opérations</label>
+          </div>
+          <div class="mb-3">
+              <label for="epoqueOperations" class="form-label">Epoque des opérations:</label>
+              <input type="text" id="epoqueOperations" formControlName="epoqueOperations" class="form-control">
+          </div>
+          <div class="mb-3">
+              <label for="descriptionInfirmite" class="form-label">Description Infirmite:</label>
+              <textarea id="descriptionInfirmite" formControlName="descriptionInfirmite" class="form-control"></textarea>
+          </div>
+          <div class="mb-3">
+              <label for="descriptionMaladiesPsychiatriques" class="form-label">Description Maladies Psychiatriques:</label>
+              <textarea id="descriptionMaladiesPsychiatriques" formControlName="descriptionMaladiesPsychiatriques" class="form-control"></textarea>
+          </div>
+          <div class="mb-3">
+              <label for="descriptionMaladiesCancereuses" class="form-label">Description Maladies Cancéreuses:</label>
+              <textarea id="descriptionMaladiesCancereuses" formControlName="descriptionMaladiesCancereuses" class="form-control"></textarea>
+          </div>
+          <div class="mb-3">
+              <label for="descriptionOperation" class="form-label">Description Opérations:</label>
+              <textarea id="descriptionOperation" formControlName="descriptionOperation" class="form-control"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Ajouter conjoint</button>
+      </form>
+       </div>
+       <!-- Modal footer -->
+       <div class="modal-footer">
+         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+       </div>
+     </div>
+   </div>
+ </div>
+ 
+ <!-- Button to Open the Modifier Modal -->
+ 
+ <!-- Modifier Modal -->
+ <div class="modal" id="modifierModal">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <!-- Modal Header -->
+       <div class="modal-header">
+         <h4 class="modal-title">Modifier un conjoint</h4>
+         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+       </div>
+       <!-- Modal body -->
+       <div class="modal-body">
+         <!-- Formulaire de modification du conjoint -->
+       </div>
+       <!-- Modal footer -->
+       <div class="modal-footer">
+         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+       </div>
+     </div>
+   </div>
+ </div>
+
+
+
+
+ <div class="container mt-5">
+  <h2>Liste des conjoints</h2>
+  <table class="table">
+      <thead>
+          <tr>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Profession</th>
+              <th>Taille (cm)</th>
+              <th>Poids (kg)</th>
+              <th>Maladie</th>
+              <th>Infirmite</th>
+              <th>Maladies Psychiatriques</th>
+              <th>Maladies Cancéreuses</th>
+              <th>Opérations</th>
+              <th>Epoque des opérations</th>
+              <th>Description Infirmite</th>
+              <th>Description Maladies Psychiatriques</th>
+              <th>Description Maladies Cancéreuses</th>
+              <th>Description Opérations</th>
+              <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let conjoint of conjoints">
+              <td>{{ conjoint.nom }}</td>
+              <td>{{ conjoint.prenom }}</td>
+              <td>{{ conjoint.profession }}</td>
+              <td>{{ conjoint.taille }}</td>
+              <td>{{ conjoint.poids }}</td>
+              <td>{{ conjoint.maladie ? 'Oui' : 'Non' }}</td>
+              <td>{{ conjoint.infirmite ? 'Oui' : 'Non' }}</td>
+              <td>{{ conjoint.maladiePsychiatrique ? 'Oui' : 'Non' }}</td>
+              <td>{{ conjoint.maladiesCancereuses ? 'Oui' : 'Non' }}</td>
+              <td>{{ conjoint.operations ? 'Oui' : 'Non' }}</td>
+              <td>{{ conjoint.epoqueOperations }}</td>
+              <td>{{ conjoint.descriptionInfirmite }}</td>
+            
+              <td>{{ conjoint.descriptionMaladiesCancereuses }}</td>
+              <td>{{ conjoint.descriptionOperation }}</td>
+              <td>
+                  <!-- Bouton Modifier -->
+                  <button class="btn btn-success me-2" (click)="modifierConjoint(conjoint.id)">
+                      <i class="bi bi-pencil"></i> Modifier
+                  </button>
+                  <!-- Bouton Supprimer -->
+                  <button class="btn btn-danger" (click)="deleteConjoint(conjoint.id)">
+                      <i class="bi bi-trash"></i> Supprimer
+                  </button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>

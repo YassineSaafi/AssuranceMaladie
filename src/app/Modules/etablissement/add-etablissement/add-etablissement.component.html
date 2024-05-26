@@ -1,0 +1,77 @@
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+  Ajouter établissement
+</button>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+ <div class="modal-dialog">
+   <div class="modal-content">
+     <!-- Modal Header -->
+     <div class="modal-header">
+       <h4 class="modal-title">Ajouter un établissement</h4>
+       <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+     </div>
+     <!-- Modal Body -->
+     <div class="modal-body">
+       <form [formGroup]="etablissementForm" (ngSubmit)="onSubmit()">
+         <div class="mb-3">
+           <label for="dateEntree" class="form-label">Date d'entrée:</label>
+           <input type="date" id="dateEntree" formControlName="dateEntree" class="form-control">
+         </div>
+         <div class="mb-3">
+           <label for="dateSortie" class="form-label">Date de sortie:</label>
+           <input type="date" id="dateSortie" formControlName="dateSortie" class="form-control">
+         </div>
+         <div class="mb-3">
+           <label for="montant" class="form-label">Montant:</label>
+           <input type="number" id="montant" formControlName="montant" class="form-control">
+         </div>
+         <div class="mb-3">
+           <label for="matricule" class="form-label">Matricule:</label>
+           <input type="text" id="matricule" formControlName="matricule" class="form-control">
+         </div>
+         <button type="submit" class="btn btn-primary">Ajouter</button>
+       </form>
+     </div>
+     <!-- Modal Footer -->
+     <div class="modal-footer">
+       <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+     </div>
+   </div>
+ </div>
+</div>
+
+<div class="container mt-5">
+ <h2>Liste des établissements</h2>
+ <table class="table">
+   <thead>
+     <tr>
+       <th>Date d'entrée</th>
+       <th>Date de sortie</th>
+       <th>Montant</th>
+       <th>Matricule</th>
+       <th>Actions</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr *ngFor="let etablissement of etablissements">
+       <td>{{ etablissement.dateEntree }}</td>
+       <td>{{ etablissement.dateSortie }}</td>
+       <td>{{ etablissement.montant }}</td>
+       <td>{{ etablissement.matricule }}</td>
+       <td>
+         <button class="btn btn-danger" (click)="deleteEtablissement(etablissement.matricule)">
+           Supprimer
+         </button>
+       </td>
+     </tr>
+   </tbody>
+ </table>
+</div>
+
+<!-- JavaScript pour l'initialisation du modal -->
+<script>
+ var myModal = new bootstrap.Modal(document.getElementById('myModal'), {});
+ myModal.show();
+</script>

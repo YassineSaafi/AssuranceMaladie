@@ -1,0 +1,10 @@
+/* styles.css (ou styles.scss) */
+
+.background-wrapper {
+    min-height: 100vh; /* Assure que le wrapper prend toute la hauteur de la page */
+    background-image: url('../../../../img//1.jpeg');
+    background-size: cover;
+    background-position: center;
+    min-width: 100vh;
+  }
+  

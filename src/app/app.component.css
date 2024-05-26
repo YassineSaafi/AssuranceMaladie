@@ -1,0 +1,5 @@
+/* Styles CSS pour doubler la taille des icônes */
+.nav-link i {
+    font-size: 2em; /* Double la taille des icônes */
+  }
+  
